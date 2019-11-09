@@ -1,0 +1,49 @@
+<div class="content" role="main">
+  <form [hidden]="displayTable" name='treeForm' id="tree_form_card" class="card-container form-group" #treeForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Numero de nodos</mat-label>
+      <input [(ngModel)]="arbol.size" (keypress)="genNodes($event)" pattern="[0-9]*" id="size" ngModel matInput name="size" #size="ngModel" [class.is-invalid]="size.invalid" type="text" placeholder="3" required>
+      <small class="text-danger" [class.d-none]="size.valid || size.untouched">El Numero de nodos es requerido</small>
+    </mat-form-field>
+
+    <label>Nodos</label>
+    <div *ngFor="let node of arbol.nodes; let index = index;">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre de la llave</mat-label>
+        <input [(ngModel)]="node.key" ngModel matInput name="key{{index}}" type="text" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Probabilidad</mat-label>
+        <input (focusout)="autoTransform(node.p,index)" [(ngModel)]="node.p" id="p" ngModel matInput name="p{{index}}" type="text" placeholder="0.3" required>
+      </mat-form-field>
+    </div>
+
+    <div class="option-container">
+      <div class="btn-container">
+        <button (click)="saveData()" class="btn btn-secondary options"><i class="mdc-fab__icon material-icons md-48" style="color:white">save</i></button>
+      </div>
+      <div class="btn-container">
+        <input #file [hidden]="true" type="file" class="custom-file-input" (change)="onFileSelected($event)">
+        <button (click)="file.click()" class="btn btn-secondary options"><i class="mdc-fab__icon material-icons md-48" style="color:white">arrow_upward</i></button>
+      </div>
+      <div class="btn-container">
+        <button (click)="onSubmit()" [disabled]="treeForm.form.invalid" class="btn btn-secondary submit-btn options">Calcular</button>
+      </div>
+    </div>
+  </form>
+  <section [hidden]="!displayTable">
+    <button (click)="backevent()" class="btn options"><i class="mdc-fab__icon material-icons md-48">arrow_back</i></button>
+    <div style="display:flex;">
+      <div style="margin:2%;">
+        <label for="TableA">Tabla A</label>
+        <table class="table table-striped table-responsive-md table-bordered table-dark" id="TableA">
+        </table>
+      </div>
+      <div style="margin:2%;">
+        <label for="TableR">Tabla R</label>
+        <table class="table table-striped table-responsive-md table-bordered table-dark" id="TableR">
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

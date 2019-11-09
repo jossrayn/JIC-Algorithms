@@ -1,0 +1,88 @@
+<div class="content" role="main">
+    <div class="card-container" style="text-align: center">
+            
+            <table class="table table-striped table-responsive-md btn-table">
+                
+                    <thead style="text-align: center">
+                        <caption>Mochila</caption>
+                            <tr>
+                              <th>Objeto</th>
+                              <th>Valor</th>
+                              <th>Peso</th>
+                              <th>Cantidad</th>
+                            </tr>
+                          </thead>
+                    <tbody>
+                    <tr>
+                      <td> <input id="txtObjeto" type="text"></td>
+                      <td> <input id="txtValor" type="text" onkeypress = "javascript:return isNumber(event)" ></td>
+                      <td> <input id="txtPeso" type="text" onkeypress = "javascript:return isNumber(event)" ></td>
+                      <td> <input id="txtCantidad" type="text" onkeypress = "javascript:return isNumber(event)" ></td>
+                      
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td style="text-align: right"><button type="button" class="btn btn-secondary" onclick="getDatosObjeto()">Agregar</button></td>
+                    </tr>
+                    </tbody>
+
+                    <table class="table table-striped table-responsive-md table-bordered " id="tablaObjetos" style="visibility: hidden; width: 100%">
+                            <tr>
+                              <th>Nombre</th>
+                              <th>Valor</th>
+                              <th>Peso</th>
+                              <th>Cantidad</th>
+                            </tr>
+
+                    </table>
+                    <thead style="text-align: center">
+                        <tr>
+                          <th>Capacidad Mochila</th>
+                        </tr>
+                      </thead>
+                <tbody>
+                <tr>
+                  <td> <input id="txtMochila" type="text" onkeypress = "javascript:return isNumber(event)" ></td>
+                  <td></td>
+                  <td></td>
+                  <td style="text-align: right"><button type="button" class="btn btn-secondary" onclick="Mochila()">Calcular</button></td>
+                </tr>
+                </tbody>
+
+            </table>
+            
+                  <table class="table table-striped table-responsive-md btn-table">
+                    <thead>
+                            <tr>
+                              <th></th>
+                              <th style="text-align:center;">Cargar Archivo</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                    <tbody>
+                    <tr>
+                      <td></td>
+                      <td> <div class="input-group">
+                        <div class="input-group-prepend">
+                          <button class="btn btn-secondary" (click)="saveTable()" style="height: 92%"  data-toggle="tooltip" data-placement="top" title="Guarda la tabla D(0)">Guardar</button>
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" onchange="onFileSelected1(this)">
+                          <label class="custom-file-label" for="inputGroupFile01" id="inputFileLabel" data-browse="Buscar">Elige el Archivo</label>
+                        </div>
+                                  </div>
+                            </td>
+                      <td> </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <h1 id="hRes" style="visibility: hidden;">Resultados</h1>    
+                  <table class="table table-striped table-responsive-md table-bordered " id="tablaRes" style="visibility: hidden; width: 100%"></table>                 
+    </div>
+    <div class="card-container">
+
+    </div>
+
+</div>

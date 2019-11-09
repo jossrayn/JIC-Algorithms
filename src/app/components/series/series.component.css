@@ -1,0 +1,73 @@
+.card-container {
+  -moz-background: white;
+	-webkit-background: white;
+	background: white;
+  box-sizing: border-box;
+  padding: 1%;
+  height: auto;
+  width: 32%;
+  margin: 1%;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.option-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 1;
+}
+
+.btn-container{
+  flex: 1;
+  flex-direction: column;
+}
+
+.options{
+  margin: 5% 2% 0% 2%;
+  display: flex;
+  flex: 1;
+  width: 90%;
+  justify-content: center;
+}
+
+.table-container{
+  width: 45%;
+  display: grid;
+  grid-template-columns: [first] auto [second] auto;
+  grid-template-rows: [first] auto [second] auto;
+}
+
+.game-container{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: auto;
+}
+
+.game{
+  margin: 5%;
+  width: 20%;
+  flex: 1;
+}
+
+.boxShadow {
+	-moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+	-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+}
+
+div #series_form_card {
+  align-self: center;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  margin: 6px auto;
+  padding: 60px 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+}

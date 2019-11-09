@@ -1,0 +1,14 @@
+footer {
+    background-color: #3b3b3b;
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+    position: relative;
+    width: 100%;
+    clear: both;
+  }
+
+
+  footer a {
+    text-align: center;
+  }

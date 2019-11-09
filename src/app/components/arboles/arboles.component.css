@@ -1,0 +1,38 @@
+.card-container {
+  -moz-background: white;
+	-webkit-background: white;
+	background: white;
+  box-sizing: border-box;
+  padding: 1%;
+  height: auto;
+  width: 32%;
+  margin: 1%;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.content {
+  display: flex;
+  margin: 6px auto;
+  padding: 60px 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 1;
+}
+
+.btn-container{
+  flex: 1;
+  flex-direction: column;
+}
+
+div #tree_form_card {
+  align-self: center;
+  flex-direction: column;
+}

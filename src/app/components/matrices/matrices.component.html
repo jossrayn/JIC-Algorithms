@@ -1,0 +1,86 @@
+<div class="content" role = "main">
+    <h1>Multiplicación de Matrices</h1>
+    <div class="card-container" [hidden]="visibleCantidad" >
+        <mat-form-field>
+            <mat-label >Cantidad de matrices</mat-label>
+            <input matInput id = "txtCounter" placeholder="Cantidad de matrices" onkeypress = "javascript:return isNumber(event)" [(ngModel)] = "matrixCounter">
+            <mat-hint>Sólo números</mat-hint>
+        </mat-form-field>
+        <button mat-icon-button aria-label="Apicar" data-toggle="tooltip" data-placement="top" title="Aplicar"(click)="guardarTamano()">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Cargar" data-toggle="tooltip" data-placement="top" title="Cargar configuración"(click)="guardarTamano()">
+            <mat-icon>keyboard_capslock</mat-icon>
+        </button>
+    </div>
+
+    <div id="configContent" class="card-container" [hidden]="visibleConfig">
+        <button mat-icon-button aria-label="volver" data-toggle="tooltip" data-placement="top" title="Volver" (click)="volver()" >
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <h5>Tamaño de filas de cada matriz</h5>
+        <p>El tamaño de la fila se asocia con el tamaño de columnas de la siguiente matriz</p>
+        <div *ngFor = "let nombre of listaMatrices">
+            <label>Tamaño de la matriz: {{nombre}}</label>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                        <input id = "fila{{nombre}}" matInput placeholder="Fila"[(ngModel)] = "listaTamanos[convertir(nombre.split('A')[1])][0]" onkeypress = "javascript:return isNumber(event)">
+                        <mat-hint>Sólo números</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field> 
+                        <input id = "columna{{nombre}}" matInput placeholder="Columna" [(ngModel)] = "listaTamanos[convertir(nombre.split('A')[1])][1]"onkeypress = "javascript:return isNumber(event)">
+                        <mat-hint>Sólo números</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>  
+        </div>
+        <button class="btn btn-success" style="margin-top: 1%;" (click)="guardarTamanos()" title="Calcular">Calcular</button>
+        <button mat-icon-button aria-label="Guardar" data-toggle="tooltip" data-placement="top" title="Guardar configuración" (click)="volverConfig()" >
+            <mat-icon>save</mat-icon>
+        </button>
+    </div>
+
+        <div id="resultContent" class="card-container" [hidden] = "visibleResult">
+            <button mat-icon-button aria-label="volver" data-toggle="tooltip" data-placement="top" title="Volver" (click)="volverConfig()" >
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+            <p>Matriz resultado</p>
+            <table id = "tablaD" class="table table-striped table-responsive-md table-bordered table-dark " style="visibility: visible; width: 100%">
+                    
+            </table>
+            <p>Matriz P</p>
+            <table id = "tablaP" class="table table-striped table-responsive-md table-bordered table-dark"  style="visibility: visible; width: 100%">
+                    
+            </table>
+        </div>
+        <div id = "lblResult" class="card-container" [hidden] = "visibleResult">
+            <mat-form-field>
+                <mat-label >Resultado</mat-label>
+                <input matInput [readonly]="!editable" placeholder="Resultado" [(ngModel)] = "optResult" >
+            </mat-form-field>
+        </div>
+        <table class="table table-striped table-responsive-md btn-table">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="btn-container">
+                      <button (click)="saveData()" class="btn btn-secondary options"><i class="mdc-fab__icon material-icons md-48" style="color:white" data-toggle="tooltip" data-placement="top" title="Guardar">save</i></button>
+                    </div>
+                    
+                </td>
+
+                <td>
+                    <div class="btn-container">
+                            <input #file [hidden]="true" type="file" class="custom-file-input" (change)="onFileSelected($event)">
+                            <button (click)="file.click()" class="btn btn-secondary options"><i class="mdc-fab__icon material-icons md-48" style="color:white" data-toggle="tooltip" data-placement="top" title="Cargar archivo">arrow_upward</i></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+          </table>
+
+
+</div>

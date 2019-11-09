@@ -1,0 +1,76 @@
+
+<div class="content" role="main">
+        <div class="card-container">  
+                      <table class="table table-striped table-responsive-md btn-table">
+                        <thead>
+                          <caption>Floyd</caption>
+                                <tr>
+                                  <th></th>
+                                  <th style="text-align:center;"></th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                        <tbody>
+                        <tr>
+                          <td></td>
+                          <td> <input class="text" placeholder="Cantidad Nodos" id="textCantidad" style="height:40px" onkeypress = "javascript:return isNumber(event)"  ></td>
+                          <td><td style="text-align: right"><button class="btn btn-secondary" onclick="createTable()" data-toggle="tooltip" data-placement="top" title="Agrega una tabla segun la cantidad ingresada en Cantidad de Nodos">Agregar</button></td>
+                        </tr>
+                        </tbody>
+                      </table>  
+
+                      <table class="table table-striped table-responsive-md table-bordered table-dark" id="tablaD"></table>
+                      <button class="btn btn-secondary" onclick="runFloyd('tablaD')" data-toggle="tooltip" data-placement="top" title="Tocar para iniciar el proceso de evaluacion de la tabla D(0)">Calcular</button>
+                      <table class="table table-striped table-responsive-md btn-table">
+                        <thead>
+                                <tr>
+                                  <th></th>
+                                  <th style="text-align:center;">Cargar Archivo</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                        <tbody>
+                        <tr>
+                          <td></td>
+                          <td> <div class="input-group">
+                              <div class="input-group-prepend">
+                                  <button class="btn btn-secondary" (click)="saveTable()" style="height: 92%"  data-toggle="tooltip" data-placement="top" title="Guarda la tabla D(0)">Guardar</button>
+                                </div>
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" onchange="onFileSelected(this)">
+                              <label class="custom-file-label" for="inputGroupFile01" id="inputFileLabel" data-browse="Buscar">Elige el Archivo</label>
+                            </div>
+                          </div>
+                                </td>
+                          <td> </td>
+                        </tr>
+                        </tbody>
+                      </table>                     
+        </div>
+        <div class="card-container" id="tableContainer" style="text-align: center;" >
+            <div class="row">
+                <div class="col-sm">
+                    <table class="table table-striped table-responsive-md table-bordered table-dark" id="tablaRes"></table>
+                </div>
+                <div class="col-sm">
+                    <table class="table table-striped table-responsive-md table-bordered table-dark" id="tablaResP"></table>
+                </div>
+              </div>
+            <input type="button" id="btnRes" class="btn btn-secondary" value="Mostrar" style="visibility: hidden">
+            <div class="card-container" id="tableOptimos" style="text-align: center;" >
+              <div class="row">
+                <div class="col-sm">
+                  <input class="text" placeholder="Nodo A" id="textA" style="visibility: hidden">
+                </div>
+                <div class="col-sm">
+                  <input class="text" placeholder="Nodo B" id="textB" style="visibility: hidden">
+                </div>
+              </div>
+              <button class="btn btn-secondary" id="btnOptimo" onclick="getOptimo()" style="visibility: hidden">Calcular</button>
+              <h2 id="caminoOptimo"></h2>
+              <h2 id="lblOptimo"></h2>
+            </div>
+        </div>
+</div>
+
+

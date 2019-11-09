@@ -1,0 +1,93 @@
+<div class="content" role="main">
+  <div class="card-container" style="text-align: center">
+
+          <table class="table table-striped table-responsive-md btn-table">
+                  <thead style="text-align: center">
+                      <caption>Reemplazo de equipo</caption>
+                      <tr>
+                      <th>Plazo</th>
+                      <th>Vida útil</th>
+                      <th>Costo compra</th>
+                      <th>Ganancia por año</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <td> <input id="txtPlazo" type="text" onkeypress = "javascript:return isNumber(event)" [(ngModel)]="deadline"></td>
+                      <td> <input id="txtVidautil" type="text" onkeypress = "javascript:return isNumber(event)" [(ngModel)]="equipLife"></td>
+                      <td> <input id="txtCosto" type="text" onkeypress = "javascript:return isNumber(event)" [(ngModel)]="equipCost"></td>
+                      <td> <input id="txtGanancia" type="text" onkeypress = "javascript:return isNumber(event)" [(ngModel)]="gain"></td>
+                      <td style="text-align: right"><button type="button" class="btn btn-secondary" (click)="createTableItems()">Generar</button></td>
+                  </tbody>
+                  <tbody>
+                    <tr>
+
+                    </tr>
+                  </tbody>
+                  <td>
+                    <table class="table table-striped table-responsive-md table-bordered " id="tablaDatos" style="visibility: hidden; width: 100%">
+                            <thead style="text-align: center">
+                                <caption>Tabla</caption>
+                                <tr>
+                                  <th>Período</th>
+                                  <th>Costo mantenimiento</th>
+                                  <th>Precio reventa</th>
+                                </tr>
+                            </thead>
+                    </table>
+                  </td>
+                  <td>
+                    <table class="table table-striped table-responsive-md table-bordered " id="tablaResultados" [hidden] = "!visible"  style="width: 150%">
+                      <thead style="text-align: center">
+                          <caption>Plan</caption>
+                          <tr>
+                            <th>t</th>
+                            <th>G(t)</th>
+                            <th>Próximo</th>
+                          </tr>
+                      </thead>
+                  </table>
+                  </td>
+                  <td>
+
+                  </td>
+                  <td>
+                      <table class="table table-striped table-responsive-md table-bordered " id="tablaRutas" [hidden] = "!visible" style="width: 80%">
+                      <thead style="text-align: center">
+                          <caption>Rutas</caption>
+                          <tr>
+                            <th>Ruta óptima</th>
+                          </tr>
+                      </thead>
+                  </table>
+                  </td>
+
+              <tbody>
+
+              </tbody>
+
+          </table>
+
+                <table class="table table-striped table-responsive-md btn-table">
+                  <tbody>
+                  <tr>
+                      <div class="option-container">
+                          <div class="btn-container">
+                                <button (click)="calculateCost()"  class="btn btn-secondary submit-btn options">Calcular</button>
+                          </div>
+
+                          <div class="btn-container">
+                            <button (click)="saveData()" class="btn btn-secondary options"><i class="mdc-fab__icon material-icons md-48" style="color:white" data-toggle="tooltip" data-placement="top" title="Guardar">save</i></button>
+                          </div>
+
+                          <div class="btn-container">
+                            <input #file [hidden]="true" type="file" class="custom-file-input" (change)="onFileSelected($event)">
+                            <button (click)="file.click()" class="btn btn-secondary options"><i class="mdc-fab__icon material-icons md-48" style="color:white" data-toggle="tooltip" data-placement="top" title="Cargar archivo">arrow_upward</i></button>
+                          </div>
+                        </div>
+                  </tr>
+                  </tbody>
+                </table>
+
+  <div class="card-container">
+
+  </div>

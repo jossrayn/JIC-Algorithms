@@ -1,0 +1,60 @@
+<div class="content" role="main">
+  <form [hidden]="isCollapsed" name='seriesForm' id="series_form_card" class="card-container form-group" #seriesForm="ngForm">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del equipo A</mat-label>
+      <input id="teamA" [(ngModel)]="model.teamA" ngModel matInput name="teamA" #teamA="ngModel" [class.is-invalid]="teamA.invalid" type="text" placeholder="Equipo A" required>
+      <small class="text-danger" [class.d-none]="teamA.valid || teamA.untouched">El nombre del equipo es requerido</small>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Probabilidad de ganar en casa</mat-label>
+      <input pattern="[0-9]*" [(ngModel)]="model.ph" ngModel matInput name="ph" #ph="ngModel" [class.is-invalid]="ph.invalid" type="text" placeholder="57" title="Probabilidad de ganar en casa." required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Probabilidad de ganar como visita</mat-label>
+      <input pattern="[0-9]*" [(ngModel)]="model.pr" ngModel matInput name="pr" type="text" placeholder="49" title="Probabilidad de ganar como visita." required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del equipo B</mat-label>
+      <input [(ngModel)]="model.teamB" ngModel matInput name="teamB" #teamB="ngModel" [class.is-invalid]="teamB.invalid" type="text" placeholder="Equipo B" required>
+      <small class="text-danger" [class.d-none]="teamB.valid || teamB.untouched">El nombre del equipo es requerido</small>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Numero de Partidos</mat-label>
+      <input pattern="[0-9]*" (keyup)="displayGamesButtons()" [(ngModel)]="model.games" ngModel matInput name="games" #games="ngModel" [class.is-invalid]="games.invalid" type="text" placeholder="7" required>
+      <small class="text-danger" [class.d-none]="games.valid || games.untouched">El numero de Partidos del equipo es requerido</small>
+    </mat-form-field>
+
+    <section *ngFor="let item of model.format" class="game-container" novalidate>
+      <button (click)="changeState(item)" class="btn options game btn-secondary" [style.background-color]="item.state ? 'green':'grey'">{{item.game}}</button>
+    </section>
+    <div class="option-container">
+
+      <div class="btn-container">
+        <button (click)="saveData()" class="btn btn-secondary options"><i class="mdc-fab__icon material-icons md-48" style="color:white">save</i></button>
+      </div>
+
+      <div class="btn-container">
+        <input #file [hidden]="true" type="file" class="custom-file-input" (change)="onFileSelected($event)">
+        <button (click)="file.click()" class="btn btn-secondary options"><i class="mdc-fab__icon material-icons md-48" style="color:white">arrow_upward</i></button>
+      </div>
+
+      <div class="btn-container">
+        <button (click)="onSubmit()" [disabled]="seriesForm.form.invalid" class="btn btn-secondary submit-btn options">Calcular</button>
+      </div>
+
+    </div>
+
+  </form>
+  <section class="table-container" [hidden]="!isCollapsed">
+    <button (click)="backevent()" class="btn options"><i class="mdc-fab__icon material-icons md-48">arrow_back</i></button>
+    <h3 style="grid-column: 2; grid-row:1; justify-self: center;">{{model.teamB}}</h3>
+    <h3 style="grid-column: 1; grid-row:2; align-self: center;">{{model.teamA}}</h3>
+    <table style="grid-column: 2; grid-row:2;" class="table table-striped table-responsive-md table-bordered" id="seriesTable">
+    </table>
+  </section>
+</div>
